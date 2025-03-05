@@ -67,7 +67,7 @@ const LoginForm: React.FC = () => {
                 className="p-4 border rounded shadow bg-white w-100"
                 style={{ maxWidth: "350px" }} // Define a largura máxima do formulário
             >
-                <h2 className="text-center mb-4">Login</h2> // Título do formulário
+                <h2 className="text-center mb-4">Login</h2>
 
                 {/* Campo Usuário */}
                 <div className="mb-3">
