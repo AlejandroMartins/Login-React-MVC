@@ -1,14 +1,16 @@
-const User = require('../models/User');
+class IUserRepository {
+  /**
+   * Busca um usuário pelo nome de usuário.
+   * @param {string} username - Nome de usuário a ser buscado.
+   * @returns {Promise<Object | null>}
+   */
+  findByUsername(username) {}
 
-class UserRepository {
-    async findByUsername(username) {
-        return User.findOne({ username });
-    }
-
-    async create(userData) {
-        const user = new User(userData);
-        return user.save();
-    }
+  /**
+   * Cria um novo usuário no banco de dados.
+   * @param {Object} userData - Dados do usuário a serem salvos.
+   * @returns {Promise<Object>}
+   */
+  create(userData) {}
 }
-
-module.exports = UserRepository;
+module.exports = { IUserRepository };

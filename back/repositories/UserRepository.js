@@ -1,13 +1,14 @@
 const User = require("../models/User");
-const IUserRepository = require("./IUserRepository");
+const { IUserRepository } = require("./IUserRepository");
 
 class UserRepository extends IUserRepository {
-  async create(user) {
-    return await User.create(user);
+  async findByUsername(username) {
+    return User.findOne({ username });
   }
 
-  async findByUsername(username) {
-    return await User.findOne({ username });
+  async create(userData) {
+    const user = new User(userData);
+    return user.save();
   }
 }
 

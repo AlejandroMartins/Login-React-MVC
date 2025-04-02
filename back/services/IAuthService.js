@@ -1,10 +1,20 @@
+/**
+ * Interface para o serviço de autenticação
+ * Define os métodos esperados e seus retornos
+ */
 class IAuthService {
-  register(user) {
-    throw new Error("Método não implementado!");
-  }
-  login(username, password) {
-    throw new Error("Método não implementado!");
-  }
+  /**
+   * @param {Object} user - { username: string, password: string }
+   * @returns {Promise<Object>} - { message: string }
+   */
+  register(user) {}
+
+  /**
+   * @param {string} username
+   * @param {string} password
+   * @returns {Promise<Object>} - { message: string, token: string }
+   */
+  login(username, password) {}
 }
 
 module.exports = IAuthService;
