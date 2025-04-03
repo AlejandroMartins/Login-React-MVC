@@ -1,7 +1,11 @@
+const IUserRepository = require("./IUserRepository");
 const User = require("../models/User");
-const { IUserRepository } = require("./IUserRepository");
 
 class UserRepository extends IUserRepository {
+  constructor() {
+    super(); // Chamando o construtor da interface
+  }
+
   async findByUsername(username) {
     return User.findOne({ username });
   }

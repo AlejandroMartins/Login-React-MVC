@@ -1,4 +1,7 @@
 class UserController {
+  /**
+   * @param {IAuthService} authService - Serviço de autenticação
+   */
   constructor(authService) {
     this.authService = authService;
   }

@@ -1,12 +1,10 @@
+const IAuthService = require("./IAuthService");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const IAuthService = require("./IAuthService");
-
-const JWT_SECRET = process.env.JWT_SECRET || "secreto";
 
 class AuthService extends IAuthService {
   constructor(userRepository) {
-    super();
+    super(); // Chamando o construtor da interface
     this.userRepository = userRepository;
   }
 
@@ -26,7 +24,7 @@ class AuthService extends IAuthService {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) throw new Error("Senha incorreta!");
 
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user._id }, "secreto", { expiresIn: "1h" });
     return { message: "Logado com sucesso!", token };
   }
 }

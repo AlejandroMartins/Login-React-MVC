@@ -5,12 +5,13 @@ const UserRepository = require("../repositories/UserRepository");
 
 const router = express.Router();
 
-// Criar instâncias com injeção de dependência
+// Criando instâncias concretas e injetando a interface
 const userRepository = new UserRepository();
 const authService = new AuthService(userRepository);
-const userController = new UserController(authService);
+const userController = new UserController(authService); // O Controller só vê a interface
 
-router.post("/register", userController.register);
-router.post("/login", userController.login);
+// Rotas que chamam os métodos do Controller
+router.post("/register", (req, res) => userController.register(req, res));
+router.post("/login", (req, res) => userController.login(req, res));
 
 module.exports = router;

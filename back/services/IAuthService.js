@@ -1,18 +1,15 @@
-/**
- * Interface para o serviço de autenticação
- * Define os métodos esperados e seus retornos
- */
 class IAuthService {
   /**
+   * Registra um novo usuário.
    * @param {Object} user - { username: string, password: string }
-   * @returns {Promise<Object>} - { message: string }
+   * @returns {Promise<{ message: string }>}
    */
   register(user) {}
-
   /**
+   * Faz login no sistema.
    * @param {string} username
    * @param {string} password
-   * @returns {Promise<Object>} - { message: string, token: string }
+   * @returns {Promise<{ message: string, token: string }>}
    */
   login(username, password) {}
 }
