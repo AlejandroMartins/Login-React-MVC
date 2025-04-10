@@ -1,8 +1,9 @@
-import { Document } from "mongoose"
+import { Document } from "mongoose";
+import { IUser } from "../models/User";
 
-interface IUserRepository{
-    findByUsername(username):Document
-    create(userData):Promise<Document>
+interface IUserRepository {
+  findByUsername(username: string): Promise<IUser | null>;
+  create(userData: IUser): Promise<IUser & Document>;
 }
 
-export default IUserRepository
+export default IUserRepository;
